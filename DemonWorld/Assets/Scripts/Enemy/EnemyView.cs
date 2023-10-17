@@ -7,7 +7,6 @@ public class EnemyView : MonoBehaviour
     public EventServiceScriptableObject eventService;
 
     private EnemyController enemyController;
-    public ParticleSystem destoryEffect;
 
 
     public void SetController(EnemyController enemyController) => this.enemyController = enemyController;
@@ -19,7 +18,6 @@ public class EnemyView : MonoBehaviour
 
     public void TakeDamage(float damageAmount)
     {
-        destoryEffect.Play();
         enemyController.TakeDamage(damageAmount);
     }
     

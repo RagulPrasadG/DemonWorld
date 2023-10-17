@@ -20,6 +20,6 @@ MonoBehaviour:
       type: 3}
   - towerType: 1
     speed: 400
-    damageAmount: 10
+    damageAmount: 20
     projectileView: {fileID: 4247056074056323913, guid: ea183bbd7ef30d54aad779224b82bfcf,
       type: 3}

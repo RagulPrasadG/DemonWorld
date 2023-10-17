@@ -301,6 +301,8 @@ MonoBehaviour:
     type: 2}
   eventServiceScriptableObject: {fileID: 11400000, guid: e2e87ec0684115c4dac2e1351e1bd697,
     type: 2}
+  vfxDataScriptableObject: {fileID: 11400000, guid: 27d4040dd649f4e41a69e7bcd436b8b5,
+    type: 2}
 --- !u!1 &410087039
 GameObject:
   m_ObjectHideFlags: 0

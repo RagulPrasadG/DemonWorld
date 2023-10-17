@@ -9,6 +9,7 @@ public class GameService : Singleton<GameService>
     public PreviewService previewService;
     private LevelService levelService;
     private WaveService waveService;
+    private VfxService vfxService;
     public TowerService towerService { get; private set; }
     #endregion
 
@@ -25,11 +26,11 @@ public class GameService : Singleton<GameService>
     [Header("ENEMY_DATA")]
     [Space(10)]
     [SerializeField] List<EnemyDataScriptableObject> enemyDataScriptableObjects;
-
     [SerializeField] TowerDataScriptableObject towerDataScriptableObject;
     [SerializeField] WaveDataScriptableObject waveDataScriptableObject;
     [SerializeField] ProjectileDataScriptableObject projectileDataScriptableObject;
     [SerializeField] EventServiceScriptableObject eventServiceScriptableObject;
+    [SerializeField] VfxDataScriptableObject vfxDataScriptableObject;
     #endregion
 
 
@@ -40,6 +41,7 @@ public class GameService : Singleton<GameService>
         previewService.SetPreviewMesh(towerDataScriptableObject.GetPreviewMesh(TowerType.CrossBowTower));
         levelService.SetWorldTiles();
         waveService = new WaveService(enemyDataScriptableObjects,waveDataScriptableObject);
+        vfxService = new VfxService(vfxDataScriptableObject);
         StartCoroutine(waveService.StartWave());
         
     }
@@ -50,5 +52,5 @@ public class GameService : Singleton<GameService>
 
     public TowerService GetTowerService() => towerService;
 
-
+    public VfxService GetVfxService() => vfxService;
 }
