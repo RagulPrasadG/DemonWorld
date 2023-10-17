@@ -28,7 +28,7 @@ public class TowerData
 {
     public TowerView heroView;
     public TowerType towerType;
-    public int attackRate;
+    public float attackRate;
     public float rotationSpeed;
     public int attackRange;
     public Mesh previewMesh;
@@ -36,5 +36,6 @@ public class TowerData
 
 public enum TowerType
 {
-    WizardTower
+    WizardTower,
+    CrossBowTower
 }

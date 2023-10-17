@@ -37,7 +37,7 @@ public class GameService : Singleton<GameService>
     {
         levelService = new LevelService(levelDataScriptableObjects);
         towerService = new TowerService(towerDataScriptableObject,projectileDataScriptableObject);
-        previewService.SetPreviewMesh(towerDataScriptableObject.GetPreviewMesh(TowerType.WizardTower));
+        previewService.SetPreviewMesh(towerDataScriptableObject.GetPreviewMesh(TowerType.CrossBowTower));
         levelService.SetWorldTiles();
         waveService = new WaveService(enemyDataScriptableObjects,waveDataScriptableObject);
         StartCoroutine(waveService.StartWave());

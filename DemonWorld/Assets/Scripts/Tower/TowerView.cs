@@ -55,6 +55,8 @@ public class TowerView : MonoBehaviour
 
     public void PlayAnimation(string animationName)
     {
+        if (animator == null) return;
+
         animator.SetTrigger(animationName);
     }
 

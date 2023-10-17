@@ -17,7 +17,7 @@ public class TowerService
    
     public void CreateTower(Vector3 position)
     {
-        TowerController towerController = new TowerController(towerDataScriptableObject.GetTowerData(TowerType.WizardTower),projectileDataScriptableObject,position);
+        TowerController towerController = new TowerController(towerDataScriptableObject.GetTowerData(TowerType.CrossBowTower),projectileDataScriptableObject,position);
     }
 
     public void ReturnProjectileToPool(ProjectileController projectileController)
