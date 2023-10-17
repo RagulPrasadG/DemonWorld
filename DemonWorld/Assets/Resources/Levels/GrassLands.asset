@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17ba299cbf034a34caf7529f7554295d, type: 3}
+  m_Name: GrassLands
+  m_EditorClassIdentifier: 
+  levelWidth: 8
+  levelHeight: 8
+  cellSize: 1.5
+  waves: 1
+  pathTile: {fileID: 4093767314175186466, guid: ffc4271395825c24daa9b6ad7fdd63e0,
+    type: 3}
+  emptyTile: {fileID: 7204028888175718059, guid: cb06e41dc19af9740abcd62370e7d0f2,
+    type: 3}
+  wallPrefab: {fileID: 171822, guid: 40c3da0e828fb6f4ab2a3cdad84bb59f, type: 3}
+  cornerWallPrefab: {fileID: 103298, guid: 1e81b0fc9bf0b9b4392e5125f7914471, type: 3}
+  csvFile: {fileID: 4900000, guid: f55502a8531aebd418908661cb68bd17, type: 3}
+  wayPointsIndex:
+  - {x: 2.25, y: 0, z: 9.66}
+  - {x: 5.24, y: 0, z: 9.66}
+  - {x: 5.24, y: 0, z: 3.73}
+  - {x: 6.78, y: 0, z: 3.73}
+  - {x: 6.78, y: 0, z: 9.58}
+  - {x: 9.71, y: 0, z: 9.58}
+  - {x: 9.71, y: 0, z: -0.62}
+  startTile: {fileID: 7666245095905492083, guid: 07dbe9c280c12744f8708c70f28b3cff,
+    type: 3}
+  endTile: {fileID: 4093767314175186466, guid: a14a63f990ddfd346b3307f3b5791553, type: 3}
+  gate: {fileID: 6158157993345749458, guid: 70ff538f8021e194ca6f65ef534d0cab, type: 3}

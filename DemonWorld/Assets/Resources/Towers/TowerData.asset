@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c22325db3b968943850da76afa182ae, type: 3}
+  m_Name: TowerData
+  m_EditorClassIdentifier: 
+  towersData:
+  - heroView: {fileID: 4156152336947409641, guid: 1d31535e5b418d44fa800b6b0e8645b1,
+      type: 3}
+    towerType: 0
+    attackRate: 2
+    rotationSpeed: 180
+    attackRange: 5
+    previewMesh: {fileID: 851498890340008714, guid: be98c9fd098933e4294b57801fa46bad,
+      type: 3}
