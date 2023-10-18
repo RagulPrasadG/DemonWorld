@@ -4,15 +4,16 @@ using UnityEngine;
 
 public class ProjectileController
 {
-    private ProjectileView projectileView;
+    public ProjectileView projectileView;
     public ProjectileData projectileData;
+
     public ProjectileController(ProjectileData projectileData)
     {
         this.projectileData = projectileData;
         this.projectileView = Object.Instantiate(projectileData.projectileView);
         this.projectileView.SetController(this);
     }
-
+    
     public void FireTo(Vector3 from,Vector3 to)
     {
         projectileView.rigidBody.velocity = Vector3.zero;

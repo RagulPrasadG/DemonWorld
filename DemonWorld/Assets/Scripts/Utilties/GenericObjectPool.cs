@@ -23,7 +23,7 @@ namespace Demonworld.Utilities
 
    
 
-        private T CreateNewPooledItem()
+        protected T CreateNewPooledItem()
         {
             PooledItem<T> newItem = new PooledItem<T>();
             newItem.Item = CreateItem();

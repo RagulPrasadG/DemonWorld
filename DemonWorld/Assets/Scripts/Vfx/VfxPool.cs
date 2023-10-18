@@ -10,17 +10,30 @@ public class VfxPool : GenericObjectPool<VfxController>
     public VfxController GetVfx(VfxData vfxData)
     {
         this.vfxData = vfxData;
-        VfxController vfx = GetItem();
-        if(vfx != null)
+        return  GetItem();
+    }
+
+    public override VfxController GetItem()
+    {
+        if (pooledItems.Count > 0)
         {
-            vfx.Init(vfxData);
+            foreach (PooledItem<VfxController> pooledItem in pooledItems)
+            {
+                if (pooledItem.Item.vfxData.vfxType == this.vfxData.vfxType
+                    && !pooledItem.isUsed
+                    )
+                {
+                    pooledItem.isUsed = true;
+                    return pooledItem.Item;
+                }
+            }
         }
-        return vfx;
+        return CreateNewPooledItem();
     }
 
     protected override VfxController CreateItem()
     {
-        VfxController vfxController = new VfxController();
+        VfxController vfxController = new VfxController(this.vfxData);
         return vfxController;
     }
 

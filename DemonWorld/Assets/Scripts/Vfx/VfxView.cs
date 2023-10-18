@@ -12,9 +12,8 @@ public class VfxView : MonoBehaviour
 
     public void Update()
     {
-        if(!vfx.isPlaying)
+        if(!vfx.isEmitting)
         {
-            GameService.Instance.GetVfxService().ReturnVfxToPool(this.vfxController);
             vfxController.Stop();
         }
     }

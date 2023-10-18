@@ -9,8 +9,26 @@ public class ProjectilePool : GenericObjectPool<ProjectileController>
 
     public ProjectileController GetProjectile(ProjectileData projectileData)
     {
-        this.projectileData = projectileData;
+        this.projectileData = projectileData; 
         return GetItem();
+    }
+
+    public override ProjectileController GetItem()
+    {
+        if (pooledItems.Count > 0)
+        {
+            foreach(PooledItem<ProjectileController> pooledItem in pooledItems)
+            {
+                if (pooledItem.Item.projectileData.towerType == this.projectileData.towerType
+                    && !pooledItem.isUsed
+                    )
+                {
+                    pooledItem.isUsed = true;
+                    return pooledItem.Item;
+                }
+            }
+        }
+        return CreateNewPooledItem();
     }
 
     protected override ProjectileController CreateItem()
