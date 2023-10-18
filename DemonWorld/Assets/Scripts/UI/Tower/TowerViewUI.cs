@@ -26,9 +26,10 @@ public class TowerViewUI : MonoBehaviour
 
     public void Init(TowerDataUI towerDataUI)
     {
-        towerImage.sprite = towerDataUI.towerSprite;
-        costText.text = towerDataUI.cost.ToString();
-        towerNameText.text = towerDataUI.towerName;
+        this.towerDataUI = towerDataUI;
+        towerImage.sprite = this.towerDataUI.towerSprite;
+        costText.text = this.towerDataUI.cost.ToString();
+        towerNameText.text = this.towerDataUI.towerName;
     }
 
     public void OnButtonClicked()

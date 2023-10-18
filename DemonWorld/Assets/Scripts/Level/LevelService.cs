@@ -41,6 +41,7 @@ namespace Demonworld.Services
             //Debug
             LevelDebug(GetCellPosition(0, currentLevelDataScriptableObject.levelHeight), GetCellPosition(currentLevelDataScriptableObject.levelWidth, currentLevelDataScriptableObject.levelHeight));
             LevelDebug(GetCellPosition(currentLevelDataScriptableObject.levelWidth, 0), GetCellPosition(currentLevelDataScriptableObject.levelWidth, currentLevelDataScriptableObject.levelHeight));
+            SetWorldTiles();
         }
 
         public bool isCellEmpty(int x, int z)

@@ -7,6 +7,7 @@ public class GameService : Singleton<GameService>
 {
     #region Services
     public PreviewService previewService;
+    public UIService UIService;
     private LevelService levelService;
     private WaveService waveService;
     private VfxService vfxService;
@@ -38,10 +39,9 @@ public class GameService : Singleton<GameService>
     {
         levelService = new LevelService(levelDataScriptableObjects);
         towerService = new TowerService(towerDataScriptableObject,projectileDataScriptableObject);
-        previewService.SetPreviewMesh(towerDataScriptableObject.GetPreviewMesh(TowerType.CrossBowTower));
-        levelService.SetWorldTiles();
         waveService = new WaveService(enemyDataScriptableObjects,waveDataScriptableObject);
         vfxService = new VfxService(vfxDataScriptableObject);
+        UIService.Init(towerService, previewService);
         StartCoroutine(waveService.StartWave());
         
     }
