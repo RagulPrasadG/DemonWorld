@@ -14,5 +14,7 @@ public class EnemyDataScriptableObject : ScriptableObject
 }
 public enum EnemyType
 {
-    StoneGolem, GreenGolem
+    StoneGolem, 
+    GreenGolem,
+    MetalGolem
 }

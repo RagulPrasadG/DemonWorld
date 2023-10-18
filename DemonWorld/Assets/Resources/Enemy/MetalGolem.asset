@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 704a3891a9549bf4eaae3741b71600fa, type: 3}
-  m_Name: WaveData
+  m_Script: {fileID: 11500000, guid: 50db524aea7bc4a428a058cdde5d56fe, type: 3}
+  m_Name: MetalGolem
   m_EditorClassIdentifier: 
-  waveData:
-  - enemyTypes: 010000000000000002000000
-    amount: 10
-    spawnRate: 2
+  enemyView: {fileID: 7567086260663291670, guid: 5e49d175bde57f14995f8501bb9ffa2a,
+    type: 3}
+  enemyType: 2
+  maxHealth: 300
+  speed: 1
+  damageAmount: 20
+  turnSpeed: 2

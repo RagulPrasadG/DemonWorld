@@ -308,6 +308,7 @@ MonoBehaviour:
   enemyDataScriptableObjects:
   - {fileID: 11400000, guid: 07709621ee12f1546a48a35db9c665a8, type: 2}
   - {fileID: 11400000, guid: 9eb5b206e2638024eb20762903b5b27c, type: 2}
+  - {fileID: 11400000, guid: 3881c96d6011603408afed047656ffcc, type: 2}
   towerDataScriptableObject: {fileID: 11400000, guid: 55b14486e682a89429d482c2f10e00bb,
     type: 2}
   waveDataScriptableObject: {fileID: 11400000, guid: badf3ae05d191e64894eecd39928834e,
