@@ -10,12 +10,17 @@ public class VfxPool : GenericObjectPool<VfxController>
     public VfxController GetVfx(VfxData vfxData)
     {
         this.vfxData = vfxData;
-        return GetItem();
+        VfxController vfx = GetItem();
+        if(vfx != null)
+        {
+            vfx.Init(vfxData);
+        }
+        return vfx;
     }
 
     protected override VfxController CreateItem()
     {
-        VfxController vfxController = new VfxController(vfxData);
+        VfxController vfxController = new VfxController();
         return vfxController;
     }
 

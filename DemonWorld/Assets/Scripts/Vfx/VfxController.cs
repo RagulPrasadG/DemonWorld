@@ -6,12 +6,13 @@ public class VfxController
 {
     private VfxView vfxView;
     private VfxData vfxData;
-    public VfxController(VfxData vfxData)
+
+    public void Init(VfxData vfxData)
     {
         this.vfxData = vfxData;
         this.vfxView = Object.Instantiate(this.vfxData.vfxPrefab);
         this.vfxView.SetController(this);
-    }   
+    }
 
     public void PlayAt(Vector3 positionToPlay)
     {
