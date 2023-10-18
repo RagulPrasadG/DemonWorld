@@ -47,7 +47,7 @@ public class EnemyController
         Debug.Log("TakenDamage!");
         if(currentHealth <= 0)
         {
-            GameService.Instance.GetVfxService().PlayVfx(VfxType.GoblinDeath, this.enemyView.transform.position);
+            GameService.Instance.GetVfxService().PlayVfx(VfxType.GoblinDeath, this.enemyView.target.position);
             ResetAllWayPoints();
             GameService.Instance.GetWaveService().ReturnEnemyToPool(this);
             this.enemyView.eventService.OnEnemyDie.RaiseEvent(this);
@@ -57,7 +57,7 @@ public class EnemyController
         else
         {
             currentHealth -= damageAmount;
-            GameService.Instance.GetVfxService().PlayVfx(VfxType.GoblinDamage, this.enemyView.transform.position);
+            GameService.Instance.GetVfxService().PlayVfx(VfxType.GoblinDamage, this.enemyView.target.position);
         }
     }
 

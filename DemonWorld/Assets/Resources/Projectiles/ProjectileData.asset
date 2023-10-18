@@ -14,12 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectileData:
   - towerType: 0
-    speed: 220
+    speed: 400
     damageAmount: 50
     projectileView: {fileID: -7184972424455722768, guid: 65442b020bf8d3d449b3aa3697613a66,
       type: 3}
   - towerType: 1
-    speed: 400
+    speed: 800
     damageAmount: 20
     projectileView: {fileID: 4247056074056323913, guid: ea183bbd7ef30d54aad779224b82bfcf,
       type: 3}

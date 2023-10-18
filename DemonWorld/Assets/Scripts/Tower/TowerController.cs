@@ -41,7 +41,7 @@ public class TowerController
             ProjectileController projectile = GameService.Instance.towerService.projectilePool.GetProjectile(
                 projectileDataScriptableObject.GetProjectileData(towerData.towerType));
             this.towerView.PlayAnimation("Attack");
-            projectile.FireTo(towerView.attackPoint.position, enemiesInRange[0].transform.position);
+            projectile.FireTo(towerView.attackPoint.position, enemiesInRange[0].target.position);
             attackInterval = 0;
             
         }

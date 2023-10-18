@@ -22,7 +22,7 @@ public class ProjectileController
         Quaternion turnRotation = Quaternion.LookRotation(direction);
         this.projectileView.transform.position = from;
         this.projectileView.transform.rotation = turnRotation;
-        projectileView.rigidBody.velocity = direction * projectileData.speed * Time.deltaTime;
+        projectileView.rigidBody.velocity = direction.normalized * projectileData.speed * Time.deltaTime;
     }
 
     public void OnProjectileHit()

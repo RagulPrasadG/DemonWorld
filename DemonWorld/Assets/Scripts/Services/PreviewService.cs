@@ -36,7 +36,7 @@ namespace Demonworld.Services
                             DrawPreviewMesh(previewPosition, true);
                             if (Input.GetMouseButtonDown(0))
                             {
-                                GameService.Instance.GetLevelService().AddCellData(previewPosition, GameService.Instance.towerService.towerDataScriptableObject);
+                                GameService.Instance.GetLevelService().AddCellData(previewPosition);
                             }
                         }
                         else

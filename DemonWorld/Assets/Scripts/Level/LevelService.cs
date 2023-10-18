@@ -58,7 +58,7 @@ namespace Demonworld.Services
             level[x, z].SetEmpty(false);
         }
 
-        public void AddCellData(Vector3 position,TowerDataScriptableObject heroDataScriptableObject)
+        public void AddCellData(Vector3 position)
         {
             Vector2Int cellIndex = GetCellIndex(position);
             Debug.Log(cellIndex);
@@ -66,7 +66,6 @@ namespace Demonworld.Services
                 return;
 
             GameService.Instance.towerService.CreateTower(position);
-            //level[cellIndex.x, cellIndex.y].SetTower(heroDataScriptableObject,position);
             level[cellIndex.x, cellIndex.y].SetEmpty(false);
         }
 

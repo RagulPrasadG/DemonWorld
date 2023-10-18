@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyView : MonoBehaviour
 {
     public EventServiceScriptableObject eventService;
-
+    public Transform target;
     private EnemyController enemyController;
 
 
