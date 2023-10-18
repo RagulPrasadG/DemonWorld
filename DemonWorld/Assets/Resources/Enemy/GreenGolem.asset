@@ -16,6 +16,6 @@ MonoBehaviour:
     type: 3}
   enemyType: 1
   maxHealth: 100
-  speed: 1
+  speed: 2
   damageAmount: 5
   turnSpeed: 3
