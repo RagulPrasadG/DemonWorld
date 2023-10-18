@@ -513,6 +513,9 @@ MonoBehaviour:
     type: 3}
   towerDataUIScriptablObject: {fileID: 11400000, guid: 2ebb39e00f6cbfe4f88773b03fe93f4c,
     type: 2}
+  eventServiceScriptableObject: {fileID: 11400000, guid: e2e87ec0684115c4dac2e1351e1bd697,
+    type: 2}
+  towerViewUIList: []
 --- !u!1 &1534359757
 GameObject:
   m_ObjectHideFlags: 0
@@ -712,7 +715,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 0
-  m_Spacing: 0
+  m_Spacing: -150
   m_ChildForceExpandWidth: 1
   m_ChildForceExpandHeight: 1
   m_ChildControlWidth: 0

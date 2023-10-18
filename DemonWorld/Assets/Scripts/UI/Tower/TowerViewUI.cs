@@ -33,8 +33,11 @@ public class TowerViewUI : MonoBehaviour
 
     public void OnButtonClicked()
     {
-        toggle.isOn = !toggle.isOn;
         eventServiceScriptableObject.OnTowerSelected.RaiseEvent(towerDataUI.towerType);
+        toggle.isOn = !toggle.isOn;      
     }
+
+    public void Deselect() => toggle.isOn = false;
+ 
 
 }
