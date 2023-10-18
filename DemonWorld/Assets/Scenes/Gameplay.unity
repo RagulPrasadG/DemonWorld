@@ -508,6 +508,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca3e4d0fc06127d48b4d1bc455eb29f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  towerViewUIContainer: {fileID: 1707019045}
+  towerViewPrefab: {fileID: 6819249972731219120, guid: 7e47e77315a23c14da355f5b54e47173,
+    type: 3}
+  towerDataUIScriptablObject: {fileID: 11400000, guid: 2ebb39e00f6cbfe4f88773b03fe93f4c,
+    type: 2}
 --- !u!1 &1534359757
 GameObject:
   m_ObjectHideFlags: 0

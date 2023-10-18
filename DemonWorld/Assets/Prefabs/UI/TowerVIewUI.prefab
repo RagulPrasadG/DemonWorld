@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 4214867397536443943}
   - component: {fileID: 4214867397536443942}
   - component: {fileID: 4214867397536443936}
+  - component: {fileID: 6819249972731219120}
   m_Layer: 5
   m_Name: TowerVIewUI
   m_TagString: Untagged
@@ -201,6 +202,25 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &6819249972731219120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4214867397536443940}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2eba103e1e26c14dbaa84f12b6a5a48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  towerImage: {fileID: 4214867398159263575}
+  towerNameText: {fileID: 4214867397662391728}
+  costText: {fileID: 4214867398233647567}
+  toggle: {fileID: 4214867398134727295}
+  button: {fileID: 4214867397536443936}
+  eventServiceScriptableObject: {fileID: 11400000, guid: e2e87ec0684115c4dac2e1351e1bd697,
+    type: 2}
 --- !u!1 &4214867397662391734
 GameObject:
   m_ObjectHideFlags: 0

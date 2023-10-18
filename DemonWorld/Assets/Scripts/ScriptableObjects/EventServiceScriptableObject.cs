@@ -6,8 +6,12 @@ using System;
 [CreateAssetMenu(fileName = "NewEventService",menuName = "Data/NewEventService")]
 public class EventServiceScriptableObject : ScriptableObject
 {
+    [Header("Gameplay")]
     public GenericEvent<float> OnProjectileHitEnemy = new GenericEvent<float>();
     public GenericEvent<EnemyController> OnEnemyDie = new GenericEvent<EnemyController>();
+
+    [Header("UI")]
+    public GenericEvent<TowerType> OnTowerSelected = new GenericEvent<TowerType>();
 }
 
 

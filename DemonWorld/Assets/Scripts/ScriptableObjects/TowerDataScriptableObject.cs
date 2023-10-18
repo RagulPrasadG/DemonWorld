@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "NewPlayerData", menuName = "Data/NewPlayerData")]
+[CreateAssetMenu(fileName = "NewTowerData", menuName = "Data/NewTowerData")]
 public class TowerDataScriptableObject : ScriptableObject
 {
     [SerializeField] List<TowerData> towersData;

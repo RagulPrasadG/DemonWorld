@@ -6,11 +6,13 @@ using UnityEngine;
 public class TowerDataUIScriptablObject : ScriptableObject
 {
     [SerializeField] List<TowerDataUI> towerDataUI;
+    public List<TowerDataUI> GetTowerData() => towerDataUI;
 }
 
 [System.Serializable]
 public struct TowerDataUI
 {
+    public string towerName;
     public Sprite towerSprite;
     public TowerType towerType;
     public float cost;
