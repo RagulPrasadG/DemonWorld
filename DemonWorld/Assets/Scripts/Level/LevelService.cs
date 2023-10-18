@@ -188,7 +188,7 @@ namespace Demonworld.Services
 
         public void SpawnCornerWall(Vector3 position)
         {
-            GameObject wall = Object.Instantiate(currentLevelDataScriptableObject.cornerWallPrefab, position, Quaternion.identity);
+           Object.Instantiate(currentLevelDataScriptableObject.cornerWallPrefab, position, Quaternion.identity);
         }
 
 

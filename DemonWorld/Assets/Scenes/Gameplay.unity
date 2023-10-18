@@ -574,6 +574,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f97672ac736730c4bb6bb6ba6d4065f8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  previewLayer:
+    serializedVersion: 2
+    m_Bits: 64
   canPlaceMaterial: {fileID: 2100000, guid: edcfeead01fd76c4db7795b6ac5120b2, type: 2}
   cannotPlaceMaterial: {fileID: 2100000, guid: 4d5e9163741977045b053571666b87f6, type: 2}
 --- !u!1 &1559936700

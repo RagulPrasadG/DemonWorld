@@ -41,6 +41,7 @@ public class GameService : Singleton<GameService>
         towerService = new TowerService(towerDataScriptableObject,projectileDataScriptableObject);
         waveService = new WaveService(enemyDataScriptableObjects,waveDataScriptableObject);
         vfxService = new VfxService(vfxDataScriptableObject);
+        previewService.Init(levelService);
         UIService.Init(towerService, previewService);
         StartCoroutine(waveService.StartWave());
         

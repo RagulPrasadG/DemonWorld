@@ -6,9 +6,11 @@ namespace Demonworld.Services
 {
     public class PreviewService : MonoBehaviour
     {
+        [SerializeField] LayerMask previewLayer;
         [SerializeField] Material canPlaceMaterial;
         [SerializeField] Material cannotPlaceMaterial;
         private Mesh previewMesh;
+        private LevelService levelService;
 
         public void SetPreviewMesh(Mesh mesh)
         {
@@ -20,23 +22,30 @@ namespace Demonworld.Services
             ShowPreview();   
         }
 
+        public void Init(LevelService levelService)
+        {
+            this.levelService = levelService;
+        }
+
         public void ShowPreview()
         {
+            if (previewMesh == null) return;
+
             if (Input.GetMouseButton(1))
             {
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit rayCastHit;
                 if(Physics.Raycast(ray,out rayCastHit,Mathf.Infinity))
                 {
-                    if(GameService.Instance.GetLevelService().IsInBounds(rayCastHit.point))
+                    if(levelService.IsInBounds(rayCastHit.point))
                     {
-                        Vector3 previewPosition = GameService.Instance.GetLevelService().GetCellPosition(rayCastHit.point);
-                        if(GameService.Instance.GetLevelService().GetCellData(previewPosition).isEmpty())
+                        Vector3 previewPosition = levelService.GetCellPosition(rayCastHit.point);
+                        if(levelService.GetCellData(previewPosition).isEmpty())
                         {
                             DrawPreviewMesh(previewPosition, true);
                             if (Input.GetMouseButtonDown(0))
                             {
-                                GameService.Instance.GetLevelService().AddCellData(previewPosition);
+                                levelService.AddCellData(previewPosition);
                             }
                         }
                         else

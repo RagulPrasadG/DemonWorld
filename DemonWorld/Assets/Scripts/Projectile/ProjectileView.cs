@@ -13,7 +13,6 @@ public class ProjectileView : MonoBehaviour
     {
         if(other.gameObject.CompareTag("Level"))
         {
-  
             EnemyView enemy = other.GetComponent<EnemyView>();
             if (enemy != null)
             {
