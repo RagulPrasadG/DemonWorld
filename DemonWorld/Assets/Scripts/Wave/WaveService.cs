@@ -35,6 +35,7 @@ public class WaveService
 
     public IEnumerator StartWave()
     {
+        canSpawnEnemies = true;
         SetCurrentWaveData();
         while (canSpawnEnemies)
         {
@@ -48,20 +49,23 @@ public class WaveService
     {
         if (spawnedEnemies >= currentWaveData.amount)
         {
-            Debug.Log("Spawning Next Wave!!");
+            Debug.Log("Spawning New Wave!!");
             if(currentWaveId < lastWaveId)
             {
                 currentWaveId++;
+                GameService.Instance.UIService.SetWaveNumber(currentWaveId + 1);
             }
             currentWaveData = waveDataScriptableObject.GetWaveData(currentWaveId);
+            GameService.Instance.UIService.EnableStartWaveButton();
+            canSpawnEnemies = false;
         }        
         else
         {
+            EnemyController enemy = enemyPool.GetEnemy(currentWaveData.GetRandomEnemyType());
+            enemy.enemyView.gameObject.SetActive(true);
             spawnedEnemies++;
         }
            
-        EnemyController enemy = enemyPool.GetEnemy(currentWaveData.GetRandomEnemyType());
-        enemy.enemyView.gameObject.SetActive(true);
     }
 
     public void SetCurrentWaveData()

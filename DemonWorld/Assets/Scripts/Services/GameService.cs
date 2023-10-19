@@ -43,9 +43,12 @@ public class GameService : Singleton<GameService>
         vfxService = new VfxService(vfxDataScriptableObject);
         previewService.Init(levelService);
         UIService.Init(towerService, previewService);
-        StartCoroutine(waveService.StartWave());
+       
         
     }
+
+    public void StartWave() => StartCoroutine(waveService.StartWave());
+
 
     
     public LevelService GetLevelService() => levelService;
