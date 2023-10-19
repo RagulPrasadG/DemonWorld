@@ -9,9 +9,12 @@ public class WaveService
     private int currentWaveId;
     private int lastWaveId;
     private WaveDataScriptableObject waveDataScriptableObject;
+    private List<EnemyDataScriptableObject> enemyDataScriptableObject;
     private EnemyPool enemyPool;
     private WaveData currentWaveData;
     private bool canSpawnEnemies;
+    private int spawnedEnemies;
+
     public EnemyPool GetEnemyPool() => enemyPool;
     public void ReturnEnemyToPool(EnemyController enemyController)
     {
@@ -23,7 +26,7 @@ public class WaveService
     {
         this.enemyPool = new EnemyPool(enemyData);
         this.waveDataScriptableObject = waveDataScriptableObject;
-        this.lastWaveId = waveDataScriptableObject.GetWaveLength() - 1;
+        this.lastWaveId = waveDataScriptableObject.GetWaveLength();
         this.currentWaveId = 0;
         this.canSpawnEnemies = true;
     }
@@ -43,6 +46,20 @@ public class WaveService
 
     private void SpawnEnemy()
     {
+        if (spawnedEnemies >= currentWaveData.amount)
+        {
+            Debug.Log("Spawning Next Wave!!");
+            if(currentWaveId < lastWaveId)
+            {
+                currentWaveId++;
+            }
+            currentWaveData = waveDataScriptableObject.GetWaveData(currentWaveId);
+        }        
+        else
+        {
+            spawnedEnemies++;
+        }
+           
         EnemyController enemy = enemyPool.GetEnemy(currentWaveData.GetRandomEnemyType());
         enemy.enemyView.gameObject.SetActive(true);
     }

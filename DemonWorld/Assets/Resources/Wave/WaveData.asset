@@ -13,6 +13,18 @@ MonoBehaviour:
   m_Name: WaveData
   m_EditorClassIdentifier: 
   waveData:
-  - enemyTypes: 010000000000000002000000
+  - enemyTypes: 01000000
+    amount: 5
+    spawnRate: 3
+  - enemyTypes: 01000000
+    amount: 8
+    spawnRate: 3
+  - enemyTypes: 01000000
     amount: 10
-    spawnRate: 2
+    spawnRate: 3
+  - enemyTypes: 0100000000000000
+    amount: 15
+    spawnRate: 3
+  - enemyTypes: 0100000002000000
+    amount: 20
+    spawnRate: 3

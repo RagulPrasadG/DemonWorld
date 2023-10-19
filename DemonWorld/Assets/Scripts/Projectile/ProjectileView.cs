@@ -16,7 +16,6 @@ public class ProjectileView : MonoBehaviour
             EnemyView enemy = other.GetComponent<EnemyView>();
             if (enemy != null)
             {
-                Debug.Log("Enemy");
                 enemy.TakeDamage(projectileController.projectileData.damageAmount);
             }
             projectileController.OnProjectileHit();

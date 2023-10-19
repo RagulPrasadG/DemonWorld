@@ -8,7 +8,7 @@ public class WaveDataScriptableObject : ScriptableObject
 {
     [SerializeField] List<WaveData> waveData;
     public WaveData GetWaveData(int index) => waveData[index];
-    public int GetWaveLength() => waveData.Count;
+    public int GetWaveLength() => waveData.Count - 1;
 
 }
 
