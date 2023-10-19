@@ -33,10 +33,12 @@ namespace Demonworld.Services
 
             if (Input.GetMouseButton(1))
             {
+               
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
                 RaycastHit rayCastHit;
-                if(Physics.Raycast(ray,out rayCastHit,Mathf.Infinity))
+                if(Physics.Raycast(ray,out rayCastHit,Mathf.Infinity,previewLayer))
                 {
+                    Debug.Log(rayCastHit.collider.gameObject.name);
                     if(levelService.IsInBounds(rayCastHit.point))
                     {
                         Vector3 previewPosition = levelService.GetCellPosition(rayCastHit.point);
