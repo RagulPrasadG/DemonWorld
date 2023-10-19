@@ -13,7 +13,7 @@ public class WaveService
     private EnemyPool enemyPool;
     private WaveData currentWaveData;
     private bool canSpawnEnemies;
-    private int spawnedEnemies;
+    private List<EnemyController> spawnedEnemies = new List<EnemyController>();
 
     public EnemyPool GetEnemyPool() => enemyPool;
     public void ReturnEnemyToPool(EnemyController enemyController)
@@ -47,7 +47,7 @@ public class WaveService
 
     private void SpawnEnemy()
     {
-        if (spawnedEnemies >= currentWaveData.amount)
+        if (spawnedEnemies.Count >= currentWaveData.amount)
         {
             Debug.Log("Spawning New Wave!!");
             if(currentWaveId < lastWaveId)
@@ -63,7 +63,7 @@ public class WaveService
         {
             EnemyController enemy = enemyPool.GetEnemy(currentWaveData.GetRandomEnemyType());
             enemy.enemyView.gameObject.SetActive(true);
-            spawnedEnemies++;
+            spawnedEnemies.Add(enemy);
         }
            
     }
