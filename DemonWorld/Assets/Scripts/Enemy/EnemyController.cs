@@ -48,6 +48,7 @@ public class EnemyController
         Debug.Log("TakenDamage!");
         if(currentHealth <= 0)
         {
+            GameService.Instance.IncreaseCoinAmount(enemyDataScriptableObject.coinsForDeath);
             GameService.Instance.GetSoundService().PlaySfx(SoundType.EnemyDie);
             GameService.Instance.GetVfxService().PlayVfx(VfxType.GoblinDeath, this.enemyView.target.position);
             ResetAllWayPoints();

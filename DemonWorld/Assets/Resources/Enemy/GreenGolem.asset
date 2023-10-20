@@ -19,3 +19,4 @@ MonoBehaviour:
   speed: 2
   damageAmount: 5
   turnSpeed: 3
+  coinsForDeath: 10

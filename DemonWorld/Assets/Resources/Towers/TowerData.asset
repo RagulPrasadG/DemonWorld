@@ -21,6 +21,7 @@ MonoBehaviour:
     attackRange: 5
     previewMesh: {fileID: 851498890340008714, guid: be98c9fd098933e4294b57801fa46bad,
       type: 3}
+    cost: 100
   - heroView: {fileID: 1437643599949666156, guid: 29d6ba784020be74086ff3523897dd5e,
       type: 3}
     towerType: 1
@@ -29,3 +30,4 @@ MonoBehaviour:
     attackRange: 5
     previewMesh: {fileID: 4124340151314665191, guid: 17354976148791d46a106e47d86cd9f1,
       type: 3}
+    cost: 35

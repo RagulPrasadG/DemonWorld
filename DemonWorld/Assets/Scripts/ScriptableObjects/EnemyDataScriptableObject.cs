@@ -11,6 +11,7 @@ public class EnemyDataScriptableObject : ScriptableObject
     public float speed;
     public int damageAmount;
     public int turnSpeed;
+    public int coinsForDeath;
 }
 public enum EnemyType
 {

@@ -32,6 +32,7 @@ public class TowerData
     public float rotationSpeed;
     public int attackRange;
     public Mesh previewMesh;
+    public int cost;
 }
 
 public enum TowerType
