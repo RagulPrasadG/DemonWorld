@@ -16,10 +16,12 @@ public class EnemyView : MonoBehaviour
     {
         enemyController.Move();
     }
+
     private void OnEnable()
     {
-        GameService.Instance.GetSoundService().PlaySfx(SoundType.EnemySpawn);
+        GameService.Instance.GetSoundService().PlaySfxAt(SoundType.EnemySpawn,this.audioSource);
     }
+
 
     public void TakeDamage(float damageAmount)
     {

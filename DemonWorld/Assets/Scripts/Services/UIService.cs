@@ -49,7 +49,7 @@ public class UIService : MonoBehaviour
     public void ShowWaveNumber()
     { 
         Sequence sequence = DOTween.Sequence();
-        sequence.Append(waveNumberPanel.DOMoveY(40, 1f));
+        sequence.Append(waveNumberPanel.DOMoveY(50, 1f));
         sequence.AppendInterval(2f);
         sequence.Append(waveNumberPanel.DOMoveY(-50, 1f));
     }

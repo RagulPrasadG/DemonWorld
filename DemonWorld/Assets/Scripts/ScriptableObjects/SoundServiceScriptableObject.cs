@@ -36,5 +36,7 @@ public enum SoundType
     WizardFire,
     EnemySpawn,
     CrossBowFire,
-    EnemyDie
+    EnemyDie,
+    WaveStart,
+    WaveEnd
 }

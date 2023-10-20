@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waveData:
   - enemyTypes: 01000000
-    amount: 5
+    amount: 2
     spawnRate: 3
   - enemyTypes: 01000000
     amount: 8

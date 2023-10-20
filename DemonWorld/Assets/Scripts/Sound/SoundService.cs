@@ -24,4 +24,15 @@ public class SoundService
 
     }
 
+    public void PlaySfxAt(SoundType soundType,AudioSource source)
+    {
+        AudioClip clip = soundDataScriptableObject.GetSoundClip(soundType);
+        if (clip != null)
+        {
+            source.clip = clip;
+            source.Play();
+        }
+
+    }
+
 }

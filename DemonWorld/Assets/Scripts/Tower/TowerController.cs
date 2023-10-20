@@ -55,10 +55,10 @@ public class TowerController
         switch (towerData.towerType)
         {
             case TowerType.WizardTower:
-                GameService.Instance.GetSoundService().PlaySfx(SoundType.WizardFire);
+                GameService.Instance.GetSoundService().PlaySfxAt(SoundType.WizardFire,this.towerView.audioSource);
                 break;
             case TowerType.CrossBowTower:
-                GameService.Instance.GetSoundService().PlaySfx(SoundType.CrossBowFire);
+                GameService.Instance.GetSoundService().PlaySfxAt(SoundType.CrossBowFire, this.towerView.audioSource);
                 break;
         }
 
