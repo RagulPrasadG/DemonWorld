@@ -42,11 +42,25 @@ public class TowerController
                 projectileDataScriptableObject.GetProjectileData(towerData.towerType));
             this.towerView.PlayAnimation("Attack");
             projectile.FireTo(towerView.attackPoint.position, enemiesInRange[0].target.position);
+            PlaySound();
             attackInterval = 0;
             
         }
         attackInterval += Time.deltaTime;
 
+
+    }
+    public void PlaySound()
+    {
+        switch (towerData.towerType)
+        {
+            case TowerType.WizardTower:
+                GameService.Instance.GetSoundService().PlaySfx(SoundType.WizardFire);
+                break;
+            case TowerType.CrossBowTower:
+                GameService.Instance.GetSoundService().PlaySfx(SoundType.CrossBowFire);
+                break;
+        }
 
     }
 

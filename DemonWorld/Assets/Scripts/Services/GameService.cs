@@ -5,12 +5,14 @@ using Demonworld.Services;
 
 public class GameService : Singleton<GameService>
 {
+    [SerializeField] AudioSource sfxAudioSource;
     #region Services
     public PreviewService previewService;
     public UIService UIService;
     private LevelService levelService;
     private WaveService waveService;
     private VfxService vfxService;
+    private SoundService soundService;
     public TowerService towerService { get; private set; }
     #endregion
 
@@ -32,6 +34,7 @@ public class GameService : Singleton<GameService>
     [SerializeField] ProjectileDataScriptableObject projectileDataScriptableObject;
     [SerializeField] EventServiceScriptableObject eventServiceScriptableObject;
     [SerializeField] VfxDataScriptableObject vfxDataScriptableObject;
+    [SerializeField] SoundServiceScriptableObject soundDataScriptableObject;
     #endregion
 
 
@@ -43,7 +46,7 @@ public class GameService : Singleton<GameService>
         vfxService = new VfxService(vfxDataScriptableObject);
         previewService.Init(levelService);
         UIService.Init(towerService, previewService);
-       
+        soundService = new SoundService(soundDataScriptableObject, sfxAudioSource);
         
     }
 
@@ -78,5 +81,6 @@ public class GameService : Singleton<GameService>
 
     public TowerService GetTowerService() => towerService;
 
+    public SoundService GetSoundService() => soundService;
     public VfxService GetVfxService() => vfxService;
 }

@@ -18,9 +18,10 @@ public class EnemyController
         this.enemyView.SetController(this);
         this.wayPoints = GameService.Instance.GetLevelService().GetCurrentLevelWayPoints();
         this.currentHealth = enemyData.maxHealth;
+        
     }
    
-    
+   
     public void Move()
     {
         if (Vector3.Distance(this.enemyView.transform.position,wayPoints[currentWayPointIndex]) <= 0.2f)
@@ -47,6 +48,7 @@ public class EnemyController
         Debug.Log("TakenDamage!");
         if(currentHealth <= 0)
         {
+            GameService.Instance.GetSoundService().PlaySfx(SoundType.EnemyDie);
             GameService.Instance.GetVfxService().PlayVfx(VfxType.GoblinDeath, this.enemyView.target.position);
             ResetAllWayPoints();
             GameService.Instance.GetWaveService().ReturnEnemyToPool(this);

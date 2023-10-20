@@ -5,6 +5,8 @@ using UnityEngine;
 public class TowerView : MonoBehaviour
 {
     [SerializeField] Animator animator;
+    public AudioSource audioSource;
+    public SoundServiceScriptableObject soundService;
     public EventServiceScriptableObject eventService;
     public Transform defenderTransform;
     public Transform attackPoint;

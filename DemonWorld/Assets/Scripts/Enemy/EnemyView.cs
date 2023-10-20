@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyView : MonoBehaviour
 {
+    public AudioSource audioSource;
     public EventServiceScriptableObject eventService;
     public Transform target;
     private EnemyController enemyController;
@@ -14,6 +15,10 @@ public class EnemyView : MonoBehaviour
     private void Update()
     {
         enemyController.Move();
+    }
+    private void OnEnable()
+    {
+        GameService.Instance.GetSoundService().PlaySfx(SoundType.EnemySpawn);
     }
 
     public void TakeDamage(float damageAmount)

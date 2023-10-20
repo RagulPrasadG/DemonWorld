@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class WaveService
 {
-
     private int currentWaveId;
     private int lastWaveId;
     private WaveDataScriptableObject waveDataScriptableObject;
