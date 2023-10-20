@@ -16,9 +16,9 @@ MonoBehaviour:
   levelHeight: 15
   cellSize: 1.5
   waves: 1
-  pathTile: {fileID: 4093767314175186466, guid: ffc4271395825c24daa9b6ad7fdd63e0,
+  pathTile: {fileID: 8704872361215178498, guid: 4ff20f151689d854681e7c96235ff89e,
     type: 3}
-  emptyTile: {fileID: 7204028888175718059, guid: cb06e41dc19af9740abcd62370e7d0f2,
+  emptyTile: {fileID: 3580579131792249188, guid: 1cdd43d2415b11c448650cd88e97118c,
     type: 3}
   wallPrefab: {fileID: 171822, guid: 40c3da0e828fb6f4ab2a3cdad84bb59f, type: 3}
   cornerWallPrefab: {fileID: 103298, guid: 1e81b0fc9bf0b9b4392e5125f7914471, type: 3}
