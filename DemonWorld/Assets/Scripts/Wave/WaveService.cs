@@ -36,8 +36,6 @@ public class WaveService
         this.eventServiceScriptableObject.OnEnemyDie.AddListener(CheckForWaveClear);
     }
 
-
-
     public IEnumerator StartWave()
     {
         GameService.Instance.GetSoundService().PlaySfx(SoundType.WaveStart);
@@ -67,7 +65,6 @@ public class WaveService
                 GameService.Instance.UIService.SetWaveNumber(currentWaveId + 1);
             }
             currentWaveData = waveDataScriptableObject.GetWaveData(currentWaveId);
-            GameService.Instance.UIService.EnableStartWaveButton();
         }        
            
     }
@@ -78,7 +75,7 @@ public class WaveService
         if (spawnedEnemies.Count == 0 && !canSpawnEnemies)
         {
             GameService.Instance.GetSoundService().PlaySfx(SoundType.WaveEnd);
-            return;
+            GameService.Instance.UIService.EnableStartWaveButton();
         }
     }
 
