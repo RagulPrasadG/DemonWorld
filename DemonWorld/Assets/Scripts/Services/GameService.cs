@@ -16,7 +16,7 @@ public class GameService : Singleton<GameService>
 
     #region Stats
     public int coins;
-    public int health;
+    public float health;
     #endregion
 
     #region ScriptableObjects
@@ -49,7 +49,29 @@ public class GameService : Singleton<GameService>
 
     public void StartWave() => StartCoroutine(waveService.StartWave());
 
+    public void DecreaseCoinAmount(int amount)
+    {
+        this.coins -= amount;
+        UIService.SetCoinText(amount);
+    }
 
+    public void IncreaseCoinAmount(int amount)
+    {
+        this.coins += amount;
+        UIService.SetCoinText(amount);
+    }
+
+    public void IncreaseHealth(int value)
+    {
+        this.health += value;
+        UIService.SetHealthBar(health);
+    }
+
+    public void ReduceHealth(float value)
+    {
+        this.health -= value;
+        UIService.SetHealthBar(health);
+    }
     
     public LevelService GetLevelService() => levelService;
     public WaveService GetWaveService() => waveService;
