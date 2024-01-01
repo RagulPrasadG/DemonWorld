@@ -12,7 +12,8 @@ public class UIService : MonoBehaviour
     [SerializeField] Button playButton;
     [SerializeField] Button exitButton;
     [SerializeField] Button pauseButton;
-
+    [SerializeField] Button resumeButton;
+    [SerializeField] Button mainMenuButton;
 
     [Header("Panels")]
     [SerializeField] RectTransform mainMenuPanel;
@@ -62,6 +63,7 @@ public class UIService : MonoBehaviour
         playButton.onClick.AddListener(OnPlayButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
         pauseButton.onClick.AddListener(OnPauseButtonClicked);
+        mainMenuButton.onClick.AddListener(OnMainMenuButtonClicked);
     }
 
     public void OnTowerSelected(TowerType towerType)
@@ -83,6 +85,8 @@ public class UIService : MonoBehaviour
     }
 
     public void ToggleStartWaveButton(bool toggle) => startWaveButton.interactable = toggle;
+
+    public void TogglePauseButton(bool toggle) => pauseButton.interactable = toggle;
 
     public void ToggleMainMenuPanel(bool toggle)
     {
@@ -122,6 +126,12 @@ public class UIService : MonoBehaviour
     {
         gameService.soundService.PlaySfx(SoundType.ButtonClick);
         eventServiceScriptableObject.OnExitGame.RaiseEvent();
+    }
+
+    public void OnMainMenuButtonClicked()
+    {
+        gameService.soundService.PlaySfx(SoundType.ButtonClick);
+        gameService.LoadMainMenu();
     }
 
     public void OnWaveButtonClicked()

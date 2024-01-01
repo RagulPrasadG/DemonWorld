@@ -2495,6 +2495,8 @@ MonoBehaviour:
   playButton: {fileID: 1724558987}
   exitButton: {fileID: 20032779}
   pauseButton: {fileID: 2083417811}
+  resumeButton: {fileID: 1771709934}
+  mainMenuButton: {fileID: 402219318}
   mainMenuPanel: {fileID: 912849183}
   pauseMenuPanel: {fileID: 1208979505}
   barImage: {fileID: 345133920}
@@ -3900,7 +3902,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2083417810
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3919,7 +3921,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -227.1, y: 57}
+  m_AnchoredPosition: {x: -227.1, y: -23.5}
   m_SizeDelta: {x: 213.77063, y: 65.005615}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2083417811
