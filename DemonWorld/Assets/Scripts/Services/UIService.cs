@@ -11,10 +11,12 @@ public class UIService : MonoBehaviour
     [Header("Buttons")]
     [SerializeField] Button playButton;
     [SerializeField] Button exitButton;
+    [SerializeField] Button pauseButton;
 
 
     [Header("Panels")]
     [SerializeField] RectTransform mainMenuPanel;
+    [SerializeField] RectTransform pauseMenuPanel;
 
 
 
@@ -59,10 +61,12 @@ public class UIService : MonoBehaviour
     {
         playButton.onClick.AddListener(OnPlayButtonClicked);
         exitButton.onClick.AddListener(OnExitButtonClicked);
+        pauseButton.onClick.AddListener(OnPauseButtonClicked);
     }
 
     public void OnTowerSelected(TowerType towerType)
     {
+        gameService.soundService.PlaySfx(SoundType.ButtonClick);
         previewService.SetPreviewMesh(towerDataScriptableObject.GetPreviewMesh(towerType));
         towerService.SetSelectedTower(towerType);
     }
@@ -85,6 +89,11 @@ public class UIService : MonoBehaviour
         mainMenuPanel.gameObject.SetActive(toggle);
     }
 
+    public void TogglePauseMenuPanel(bool toggle)
+    {
+        pauseMenuPanel.gameObject.SetActive(toggle);
+    }
+
     public void SetHealthBar(float amount)
     {
         float fillValue = amount/100;
@@ -98,17 +107,26 @@ public class UIService : MonoBehaviour
 
     public void OnPlayButtonClicked()
     {
+        gameService.soundService.PlaySfx(SoundType.ButtonClick);
         ToggleMainMenuPanel(false);
         eventServiceScriptableObject.OnStartGame.RaiseEvent();
     }
 
+    public void OnPauseButtonClicked()
+    {
+        TogglePauseMenuPanel(true);
+        gameService.soundService.PlaySfx(SoundType.ButtonClick);
+    }
+
     public void OnExitButtonClicked()
     {
+        gameService.soundService.PlaySfx(SoundType.ButtonClick);
         eventServiceScriptableObject.OnExitGame.RaiseEvent();
     }
 
     public void OnWaveButtonClicked()
     {
+        gameService.soundService.PlaySfx(SoundType.ButtonClick);
         startWaveButton.interactable = false;
         ShowWaveNumber();
         gameService.StartWave();
