@@ -6,6 +6,8 @@ using Demonworld.Services;
 public class GameService : Singleton<GameService>
 {
     [SerializeField] AudioSource sfxAudioSource;
+    [SerializeField] AudioSource BgmAudioSource;
+
     #region Services
     public PreviewService previewService;
     public UIService UIService;
@@ -44,13 +46,17 @@ public class GameService : Singleton<GameService>
         towerService = new TowerService(towerDataScriptableObject,projectileDataScriptableObject);
         waveService = new WaveService(enemyDataScriptableObjects,waveDataScriptableObject,eventServiceScriptableObject);
         vfxService = new VfxService(vfxDataScriptableObject);
-        soundService = new SoundService(soundDataScriptableObject, sfxAudioSource);
+        soundService = new SoundService(soundDataScriptableObject, sfxAudioSource, BgmAudioSource);
         previewService.Init(levelService);
         UIService.Init(towerService, previewService);
         SetEvents();
     }
 
-    public void StartWave() => StartCoroutine(waveService.StartWave());
+    public void StartWave()
+    {
+        soundService.PlayBGM(SoundType.BattleMusic, true);
+        StartCoroutine(waveService.StartWave());
+    }
 
     public void DecreaseCoinAmount(int amount)
     {

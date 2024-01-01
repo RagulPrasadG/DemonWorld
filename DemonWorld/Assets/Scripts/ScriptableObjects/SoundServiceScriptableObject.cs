@@ -38,5 +38,7 @@ public enum SoundType
     CrossBowFire,
     EnemyDie,
     WaveStart,
-    WaveEnd
+    WaveEnd,
+    BattleMusic,
+    ButtonClick
 }

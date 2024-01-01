@@ -45,7 +45,6 @@ public class EnemyController
  
     public void TakeDamage(float damageAmount)
     {
-        Debug.Log("TakenDamage!");
         if(currentHealth <= 0)
         {
             GameService.Instance.IncreaseCoinAmount(enemyDataScriptableObject.coinsForDeath);

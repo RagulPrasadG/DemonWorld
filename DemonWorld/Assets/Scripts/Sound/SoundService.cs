@@ -8,10 +8,12 @@ public class SoundService
     private AudioSource sfxAudioSource;
     private AudioSource bgmAudioSource;
 
-    public SoundService(SoundServiceScriptableObject soundDataScriptableObject, AudioSource sfxAudioSource)
+    public SoundService(SoundServiceScriptableObject soundDataScriptableObject, AudioSource sfxAudioSource,
+        AudioSource bgmAudioSource)
     {
         this.soundDataScriptableObject = soundDataScriptableObject;
         this.sfxAudioSource = sfxAudioSource;
+        this.bgmAudioSource = bgmAudioSource;
     }
     public void PlaySfx(SoundType soundType)
     {
@@ -22,6 +24,23 @@ public class SoundService
             sfxAudioSource.Play();
         }
 
+    }
+
+    public void PlayBGM(SoundType soundType,bool loop)
+    {
+        AudioClip clip = soundDataScriptableObject.GetSoundClip(soundType);
+        bgmAudioSource.loop = true;
+        if (clip != null)
+        {
+            bgmAudioSource.clip = clip;
+            bgmAudioSource.Play();
+        }
+    }
+
+    public void StopBGM()
+    {
+        bgmAudioSource.Stop();
+        bgmAudioSource.loop = false;
     }
 
     public void PlaySfxAt(SoundType soundType,AudioSource source)

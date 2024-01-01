@@ -74,6 +74,7 @@ public class WaveService
         spawnedEnemies.Remove(controller);
         if (spawnedEnemies.Count == 0 && !canSpawnEnemies)
         {
+            GameService.Instance.GetSoundService().StopBGM();
             GameService.Instance.GetSoundService().PlaySfx(SoundType.WaveEnd);
             GameService.Instance.UIService.EnableStartWaveButton();
         }
