@@ -7,6 +7,8 @@ using System;
 public class EventServiceScriptableObject : ScriptableObject
 {
     [Header("Gameplay")]
+    public VoidEvent OnStartGame = new VoidEvent();
+    public VoidEvent OnExitGame = new VoidEvent();
     public GenericEvent<float> OnProjectileHitEnemy = new GenericEvent<float>();
     public GenericEvent<EnemyController> OnEnemyDie = new GenericEvent<EnemyController>();
 

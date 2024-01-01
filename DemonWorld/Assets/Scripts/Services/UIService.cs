@@ -8,6 +8,16 @@ using UnityEngine.UI;
 
 public class UIService : MonoBehaviour
 {
+    [Header("Buttons")]
+    [SerializeField] Button playButton;
+    [SerializeField] Button exitButton;
+
+
+    [Header("Panels")]
+    [SerializeField] RectTransform mainMenuPanel;
+
+
+
     [Header("Health_HUD")]
     [Space(10)]
     [SerializeField] Image barImage;
@@ -38,7 +48,14 @@ public class UIService : MonoBehaviour
     public void Init(TowerService towerService,PreviewService previewService)
     {
         this.towerService = towerService;
-        this.previewService = previewService;   
+        this.previewService = previewService;
+        SetEvents();
+    }
+
+    public void SetEvents()
+    {
+        playButton.onClick.AddListener(OnPlayButtonClicked);
+        exitButton.onClick.AddListener(OnExitButtonClicked);
     }
 
     public void OnTowerSelected(TowerType towerType)
@@ -60,6 +77,10 @@ public class UIService : MonoBehaviour
 
     public void EnableStartWaveButton() => startWaveButton.interactable = true;
 
+    public void ToggleMainMenuPanel(bool toggle)
+    {
+        mainMenuPanel.gameObject.SetActive(toggle);
+    }
 
     public void SetHealthBar(float amount)
     {
@@ -70,6 +91,17 @@ public class UIService : MonoBehaviour
     public void SetCoinText(int amount)
     {
         coinText.text = amount.ToString();
+    }
+
+    public void OnPlayButtonClicked()
+    {
+        ToggleMainMenuPanel(false);
+        eventServiceScriptableObject.OnStartGame.RaiseEvent();
+    }
+
+    public void OnExitButtonClicked()
+    {
+        eventServiceScriptableObject.OnExitGame.RaiseEvent();
     }
 
     public void OnWaveButtonClicked()

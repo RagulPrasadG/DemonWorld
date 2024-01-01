@@ -44,10 +44,10 @@ public class GameService : Singleton<GameService>
         towerService = new TowerService(towerDataScriptableObject,projectileDataScriptableObject);
         waveService = new WaveService(enemyDataScriptableObjects,waveDataScriptableObject,eventServiceScriptableObject);
         vfxService = new VfxService(vfxDataScriptableObject);
+        soundService = new SoundService(soundDataScriptableObject, sfxAudioSource);
         previewService.Init(levelService);
         UIService.Init(towerService, previewService);
-        soundService = new SoundService(soundDataScriptableObject, sfxAudioSource);
-        
+        SetEvents();
     }
 
     public void StartWave() => StartCoroutine(waveService.StartWave());
@@ -56,6 +56,11 @@ public class GameService : Singleton<GameService>
     {
         this.coins -= amount;
         UIService.SetCoinText(amount);
+    }
+
+    public void SetEvents()
+    {
+        eventServiceScriptableObject.OnStartGame.AddListener(OnStartGame);
     }
 
     public void IncreaseCoinAmount(int amount)
@@ -83,4 +88,10 @@ public class GameService : Singleton<GameService>
 
     public SoundService GetSoundService() => soundService;
     public VfxService GetVfxService() => vfxService;
+
+    public void OnStartGame()
+    {
+        levelService.CreateLevel();
+    }
+
 }
