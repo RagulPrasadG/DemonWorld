@@ -9,6 +9,7 @@ namespace Demonworld.Services
         [SerializeField] LayerMask previewLayer;
         [SerializeField] Material canPlaceMaterial;
         [SerializeField] Material cannotPlaceMaterial;
+
         private Mesh previewMesh;
         private LevelService levelService;
 

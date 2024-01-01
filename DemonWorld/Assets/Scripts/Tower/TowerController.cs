@@ -8,6 +8,8 @@ public class TowerController
     private TowerData towerData;
     private ProjectileDataScriptableObject projectileDataScriptableObject;
     private float attackInterval;
+
+
     public List<EnemyView> enemiesInRange;
 
     public TowerController(TowerData towerData, ProjectileDataScriptableObject projectileDataScriptableObject, Vector3 position)
