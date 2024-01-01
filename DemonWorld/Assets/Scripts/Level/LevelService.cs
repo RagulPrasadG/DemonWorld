@@ -20,7 +20,6 @@ namespace Demonworld.Services
             this.levelDataScriptableObject = levelDataScriptableObject;
             this.currentLevelDataScriptableObject = levelDataScriptableObject[currentLevel];
             level = new Cell[currentLevelDataScriptableObject.levelWidth, currentLevelDataScriptableObject.levelHeight];
-            //CreateLevel();
         }
 
         public void CreateLevel()

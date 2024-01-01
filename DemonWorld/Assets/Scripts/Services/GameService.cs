@@ -11,10 +11,11 @@ public class GameService : Singleton<GameService>
     #region Services
     public PreviewService previewService;
     public UIService UIService;
-    private LevelService levelService;
-    private WaveService waveService;
-    private VfxService vfxService;
-    private SoundService soundService;
+
+    public LevelService levelService { get; private set; }
+    public WaveService waveService { get; private set; }
+    public VfxService vfxService { get; private set; }
+    public SoundService soundService { get; private set; }
     public TowerService towerService { get; private set; }
     #endregion
 
@@ -43,12 +44,12 @@ public class GameService : Singleton<GameService>
     private void Start()
     {
         levelService = new LevelService(levelDataScriptableObjects);
-        towerService = new TowerService(towerDataScriptableObject,projectileDataScriptableObject);
-        waveService = new WaveService(enemyDataScriptableObjects,waveDataScriptableObject,eventServiceScriptableObject);
+        towerService = new TowerService(this,towerDataScriptableObject,projectileDataScriptableObject);
+        waveService = new WaveService(this,enemyDataScriptableObjects,waveDataScriptableObject,eventServiceScriptableObject);
         vfxService = new VfxService(vfxDataScriptableObject);
         soundService = new SoundService(soundDataScriptableObject, sfxAudioSource, BgmAudioSource);
         previewService.Init(levelService);
-        UIService.Init(towerService, previewService);
+        UIService.Init(this,towerService, previewService);
         SetEvents();
     }
 
@@ -87,13 +88,6 @@ public class GameService : Singleton<GameService>
         UIService.SetHealthBar(health);
     }
     
-    public LevelService GetLevelService() => levelService;
-    public WaveService GetWaveService() => waveService;
-
-    public TowerService GetTowerService() => towerService;
-
-    public SoundService GetSoundService() => soundService;
-    public VfxService GetVfxService() => vfxService;
 
     public void OnStartGame()
     {

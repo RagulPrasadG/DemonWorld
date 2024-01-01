@@ -5,18 +5,21 @@ using Demonworld.Utilities;
 public class EnemyPool : GenericObjectPool<EnemyController>
 {
     private List<EnemyDataScriptableObject> enemyDataScriptableObjects;
-    public EnemyPool(List<EnemyDataScriptableObject> enemyDataScriptableObject)
+
+    private GameService Gameservice;
+    public EnemyPool(List<EnemyDataScriptableObject> enemyDataScriptableObject,GameService gameService)
     {
         this.enemyDataScriptableObjects = enemyDataScriptableObject;
+        this.Gameservice = gameService;
     }
     
     public EnemyController GetEnemy(EnemyType enemyType)
     {
         EnemyDataScriptableObject enemyData = enemyDataScriptableObjects.Find(enemy => enemy.enemyType == enemyType);
         EnemyController enemy = GetItem();
-        if (enemy.enemyView == null)
+        if (enemy.view == null)
         {
-            enemy.Init(enemyData);
+            enemy.Init(Gameservice, enemyData);
         }
         return enemy;
     }

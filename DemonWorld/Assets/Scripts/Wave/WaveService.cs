@@ -16,18 +16,21 @@ public class WaveService
     private List<EnemyController> spawnedEnemies = new List<EnemyController>();
     private int totalEnemyCount;
 
+    private GameService Gameservice;
 
     public EnemyPool GetEnemyPool() => enemyPool;
     public void ReturnEnemyToPool(EnemyController enemyController)
     {
-        enemyController.enemyView.transform.rotation = Quaternion.identity;
-        enemyController.enemyView.transform.position = GameService.Instance.GetLevelService().GetStartPosition();
+        enemyController.SetRotation(Quaternion.identity);
+        enemyController.SetPosition(Gameservice.levelService.GetStartPosition());
         enemyPool.ReturnItem(enemyController);
     }
-    public WaveService(List<EnemyDataScriptableObject> enemyData,WaveDataScriptableObject waveDataScriptableObject,
+
+    public WaveService(GameService gameService,List<EnemyDataScriptableObject> enemyData,WaveDataScriptableObject waveDataScriptableObject,
         EventServiceScriptableObject eventServiceScriptableObject)
     {
-        this.enemyPool = new EnemyPool(enemyData);
+        this.Gameservice = gameService;
+        this.enemyPool = new EnemyPool(enemyData,Gameservice);
         this.eventServiceScriptableObject = eventServiceScriptableObject;
         this.waveDataScriptableObject = waveDataScriptableObject;
         this.lastWaveId = waveDataScriptableObject.GetWaveLength();
@@ -38,7 +41,7 @@ public class WaveService
 
     public IEnumerator StartWave()
     {
-        GameService.Instance.GetSoundService().PlaySfx(SoundType.WaveStart);
+        Gameservice.soundService.PlaySfx(SoundType.WaveStart);
         canSpawnEnemies = true;
         SetCurrentWaveData();
         while (canSpawnEnemies)
@@ -52,7 +55,7 @@ public class WaveService
     private void SpawnEnemy()
     {
         EnemyController enemy = enemyPool.GetEnemy(currentWaveData.GetRandomEnemyType());
-        enemy.enemyView.gameObject.SetActive(true);
+        enemy.view.gameObject.SetActive(true);
         spawnedEnemies.Add(enemy);
         totalEnemyCount++;
 
@@ -62,7 +65,7 @@ public class WaveService
             if (currentWaveId < lastWaveId)
             {
                 currentWaveId++;
-                GameService.Instance.UIService.SetWaveNumber(currentWaveId + 1);
+                Gameservice.UIService.SetWaveNumber(currentWaveId + 1);
             }
             currentWaveData = waveDataScriptableObject.GetWaveData(currentWaveId);
         }        
@@ -74,9 +77,9 @@ public class WaveService
         spawnedEnemies.Remove(controller);
         if (spawnedEnemies.Count == 0 && !canSpawnEnemies)
         {
-            GameService.Instance.GetSoundService().StopBGM();
-            GameService.Instance.GetSoundService().PlaySfx(SoundType.WaveEnd);
-            GameService.Instance.UIService.EnableStartWaveButton();
+            Gameservice.soundService.StopBGM();
+            Gameservice.soundService.PlaySfx(SoundType.WaveEnd);
+            Gameservice.UIService.ToggleStartWaveButton(true);
         }
     }
 

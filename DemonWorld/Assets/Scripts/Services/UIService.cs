@@ -32,6 +32,8 @@ public class UIService : MonoBehaviour
 
     [SerializeField] TowerDataScriptableObject towerDataScriptableObject;
     [SerializeField] EventServiceScriptableObject eventServiceScriptableObject;
+
+    private GameService gameService;
     private TowerService towerService;
     private PreviewService previewService;
 
@@ -45,8 +47,9 @@ public class UIService : MonoBehaviour
         eventServiceScriptableObject.OnTowerSelected.RemoveListener(OnTowerSelected);
     }
 
-    public void Init(TowerService towerService,PreviewService previewService)
+    public void Init(GameService gameService, TowerService towerService,PreviewService previewService)
     {
+        this.gameService = gameService;
         this.towerService = towerService;
         this.previewService = previewService;
         SetEvents();
@@ -75,7 +78,7 @@ public class UIService : MonoBehaviour
         waveNumberText.text = $"Wave : {number}";
     }
 
-    public void EnableStartWaveButton() => startWaveButton.interactable = true;
+    public void ToggleStartWaveButton(bool toggle) => startWaveButton.interactable = toggle;
 
     public void ToggleMainMenuPanel(bool toggle)
     {
@@ -108,7 +111,7 @@ public class UIService : MonoBehaviour
     {
         startWaveButton.interactable = false;
         ShowWaveNumber();
-        GameService.Instance.StartWave();
+        gameService.StartWave();
     }
 
 

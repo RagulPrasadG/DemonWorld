@@ -52,7 +52,7 @@ public class TowerView : MonoBehaviour
 
     public void RemoveEnemy(EnemyController enemyController)
     {
-        towerController.enemiesInRange.Remove(enemyController.enemyView);
+        towerController.enemiesInRange.Remove(enemyController.view);
     }
 
     public void PlayAnimation(string animationName)

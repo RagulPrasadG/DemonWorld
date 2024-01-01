@@ -8,12 +8,14 @@ public class TowerController
     private TowerData towerData;
     private ProjectileDataScriptableObject projectileDataScriptableObject;
     private float attackInterval;
-
+    private GameService gameService;
 
     public List<EnemyView> enemiesInRange;
 
-    public TowerController(TowerData towerData, ProjectileDataScriptableObject projectileDataScriptableObject, Vector3 position)
+    public TowerController(GameService gameService,
+        TowerData towerData, ProjectileDataScriptableObject projectileDataScriptableObject, Vector3 position)
     {
+        this.gameService = gameService;
         this.towerView = Object.Instantiate(towerData.heroView);
         this.towerView.transform.position = position;
         this.towerData = towerData;
@@ -41,10 +43,10 @@ public class TowerController
         if(attackInterval >= towerData.attackRate)
         {
             ProjectileController projectile = GameService.Instance.towerService.projectilePool.GetProjectile(
-                projectileDataScriptableObject.GetProjectileData(towerData.towerType));
+            projectileDataScriptableObject.GetProjectileData(towerData.towerType));
             this.towerView.PlayAnimation("Attack");
             projectile.FireTo(towerView.attackPoint.position, enemiesInRange[0].target.position);
-            PlaySound();
+            PlayAttackSound();
             attackInterval = 0;
             
         }
@@ -52,15 +54,16 @@ public class TowerController
 
 
     }
-    public void PlaySound()
+
+    public void PlayAttackSound()
     {
         switch (towerData.towerType)
         {
             case TowerType.WizardTower:
-                GameService.Instance.GetSoundService().PlaySfxAt(SoundType.WizardFire,this.towerView.audioSource);
+                GameService.Instance.soundService.PlaySfxAt(SoundType.WizardFire,this.towerView.audioSource);
                 break;
             case TowerType.CrossBowTower:
-                GameService.Instance.GetSoundService().PlaySfxAt(SoundType.CrossBowFire, this.towerView.audioSource);
+                GameService.Instance.soundService.PlaySfxAt(SoundType.CrossBowFire, this.towerView.audioSource);
                 break;
         }
 

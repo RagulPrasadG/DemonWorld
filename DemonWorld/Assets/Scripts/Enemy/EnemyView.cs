@@ -7,7 +7,7 @@ public class EnemyView : MonoBehaviour
     public AudioSource audioSource;
     public EventServiceScriptableObject eventService;
     public Transform target;
-    private EnemyController enemyController;
+    public EnemyController enemyController;
 
 
     public void SetController(EnemyController enemyController) => this.enemyController = enemyController;
@@ -17,15 +17,5 @@ public class EnemyView : MonoBehaviour
         enemyController.Move();
     }
 
-    private void OnEnable()
-    {
-        GameService.Instance.GetSoundService().PlaySfxAt(SoundType.EnemySpawn,this.audioSource);
-    }
 
-
-    public void TakeDamage(float damageAmount)
-    {
-        enemyController.TakeDamage(damageAmount);
-    }
-    
 }

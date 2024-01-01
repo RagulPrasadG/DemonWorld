@@ -23,7 +23,7 @@ public class VfxController
 
     public void Stop()
     {
-        GameService.Instance.GetVfxService().ReturnVfxToPool(this);
+        GameService.Instance.vfxService.ReturnVfxToPool(this);
         this.vfxView.gameObject.SetActive(false);
     }
 

@@ -7,12 +7,16 @@ namespace Demonworld.Services
     public class TowerService
     {
         public TowerDataScriptableObject towerDataScriptableObject;
+        public ProjectilePool projectilePool;
         private ProjectileDataScriptableObject projectileDataScriptableObject;
         private TowerData currentSelectedTower;
-        public ProjectilePool projectilePool;
+        private GameService Gameservice;
 
-        public TowerService(TowerDataScriptableObject towerDataScriptableObject, ProjectileDataScriptableObject projectileDataScriptableObject)
+        public TowerService(GameService Gameservice,
+            TowerDataScriptableObject towerDataScriptableObject, 
+            ProjectileDataScriptableObject projectileDataScriptableObject)
         {
+            this.Gameservice = Gameservice;
             this.towerDataScriptableObject = towerDataScriptableObject;
             this.projectileDataScriptableObject = projectileDataScriptableObject;
             this.projectilePool = new ProjectilePool();
@@ -25,7 +29,7 @@ namespace Demonworld.Services
 
         public void CreateTower(Vector3 position)
         {
-            TowerController towerController = new TowerController(currentSelectedTower, projectileDataScriptableObject, position);
+            TowerController towerController = new TowerController(Gameservice,currentSelectedTower, projectileDataScriptableObject, position);
         }
 
         public void ReturnProjectileToPool(ProjectileController projectileController)

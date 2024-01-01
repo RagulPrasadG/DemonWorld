@@ -27,7 +27,7 @@ public class ProjectileController
 
     public void OnProjectileHit()
     {
-        GameService.Instance.GetTowerService().ReturnProjectileToPool(this);
+        GameService.Instance.towerService.ReturnProjectileToPool(this);
         this.projectileView.gameObject.SetActive(false);
     }
 
